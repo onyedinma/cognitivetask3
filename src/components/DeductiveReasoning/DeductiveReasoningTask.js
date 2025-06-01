@@ -62,7 +62,48 @@ const DeductiveReasoningTask = () => {
           </div>
           
           <div className="deductive-section">
-            <h2>Example</h2>
+            <h2>Simple Example</h2>
+            <div className="deductive-simple-example">
+              <div className="deductive-example-rule">
+                <p>If a card has the color red on one side, then it has the number 7 on the other side.</p>
+              </div>
+              
+              <p>You see these four cards (you can only see one side of each card):</p>
+              
+              <div className="deductive-example-cards horizontal-cards">
+                <div className="simple-card color-card selected">
+                  <div className="card-face">Red</div>
+                </div>
+                
+                <div className="simple-card color-card">
+                  <div className="card-face">Blue</div>
+                </div>
+                
+                <div className="simple-card number-card selected">
+                  <div className="card-face">3</div>
+                </div>
+                
+                <div className="simple-card number-card">
+                  <div className="card-face">7</div>
+                </div>
+              </div>
+              
+              <div className="deductive-example-explanation">
+                <h3>The correct cards to turn over would be: Red and 3</h3>
+                <div className="explanation-reason">
+                  <p><strong>Why?</strong></p>
+                  <p>1. You need to check if the Red card has 7 on the back (the rule says it must)</p>
+                  <p>2. You need to check if the 3 card has Red on the back (which would break the rule)</p>
+                  <p><strong>You don't need to check:</strong></p>
+                  <p>- Blue card: The rule only applies to red cards</p>
+                  <p>- 7 card: Even if it has Red on the back, that follows the rule</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div className="deductive-section">
+            <h2>Another Example</h2>
             <div className="deductive-example">
               <div className="deductive-example-rule">
                 <p>If a card shows a king on one side, then it has a heart symbol on the other side.</p>

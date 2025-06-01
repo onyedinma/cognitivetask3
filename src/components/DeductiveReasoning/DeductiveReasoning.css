@@ -807,3 +807,48 @@
     margin: 5px 0;
   }
 }
+
+/* Simple card example styles */
+.deductive-simple-example {
+  margin-bottom: 25px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.simple-card {
+  width: 100px;
+  height: 140px;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  background-color: white;
+}
+
+.simple-card.selected {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(33, 150, 243, 0.3);
+  border: 2px solid #2196F3;
+}
+
+.simple-card .card-face {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.simple-card.color-card {
+  border: 1px solid #ddd;
+}
+
+.simple-card.color-card:first-child .card-face {
+  color: #e53935; /* Red text */
+}
+
+.simple-card.number-card {
+  border: 1px solid #ddd;
+}

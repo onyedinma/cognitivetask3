@@ -53,6 +53,14 @@
   font-weight: bold;
 }
 
+/* Arrow for example digits */
+.arrow {
+  font-size: 24px;
+  color: #333;
+  display: flex;
+  align-items: center;
+}
+
 /* Digit Display */
 .digit-display {
   width: 100%;

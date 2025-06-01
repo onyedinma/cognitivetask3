@@ -24,7 +24,9 @@ const ForwardDigitSpan = () => {
         
         <div className="example-digits">
           <div className="example-digit">7</div>
+          <div className="arrow">→</div>
           <div className="example-digit">9</div>
+          <div className="arrow">→</div>
           <div className="example-digit">3</div>
         </div>
         

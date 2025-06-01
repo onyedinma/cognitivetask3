@@ -1224,3 +1224,60 @@ div.spatial-screen {
     transform: scale(1);
   }
 }
+
+/* Swap Example Styles */
+.swap-example {
+  margin: 30px 0;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.swap-example-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px 0;
+}
+
+.before-swap,
+.after-swap {
+  text-align: center;
+  padding: 10px;
+  width: 40%;
+}
+
+.before-swap h4,
+.after-swap h4 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.swap-arrow {
+  font-size: 36px;
+  margin: 0 20px;
+  color: #2196F3;
+}
+
+.example-grid.small {
+  display: flex;
+  gap: 15px;
+  background-color: white;
+  padding: 15px;
+  border-radius: 6px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  justify-content: center;
+}
+
+.eco-image-container.small {
+  width: 80px;
+  height: 80px;
+}
+
+.swap-caption {
+  text-align: center;
+  margin-top: 15px;
+  font-weight: bold;
+  color: #333;
+}

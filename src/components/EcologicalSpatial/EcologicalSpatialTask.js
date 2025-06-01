@@ -103,27 +103,27 @@ const EcologicalSpatialTask = () => {
 
   return (
     <div className="spatial-screen">
-      <h1>Ecological Spatial Working Memory Task</h1>
+      <h1>Picture Memory Game</h1>
       
       <div className="task-description">
-        <p>This task measures your ability to remember the positions of real-world objects in space.</p>
+        <p>This fun game tests how well you can remember where different pictures are placed.</p>
         
-        <h2>How it works:</h2>
+        <h2>How to play:</h2>
         <ol className="instruction-list">
-          <li>You will be shown a grid containing various everyday objects</li>
-          <li>Study the positions of these objects carefully</li>
-          <li>After some time, a second grid will appear where some objects have moved positions</li>
-          <li>Your task is to identify which objects have changed position by clicking on them</li>
+          <li>You will see a board with different pictures</li>
+          <li>Look carefully at where each picture is placed</li>
+          <li>After a moment, a second board will appear where some pictures have moved to new spots</li>
+          <li>Your job is to find which pictures changed places by clicking on them</li>
         </ol>
         
         <div className="animated-example">
           <h3>Example:</h3>
           <p className="example-label">
             {showOriginal ? 
-              "Study the original positions:" : 
+              "Look at where each picture is:" : 
               animationStep === 3 ? 
-                "Identify the objects that moved (highlighted):" : 
-                "Notice the new positions:"}
+                "The pictures that moved are highlighted:" : 
+                "Now some pictures have moved:"}
           </p>
           
           <div className="example-grid-container">
@@ -153,21 +153,66 @@ const EcologicalSpatialTask = () => {
           </p>
         </div>
         
+        <div className="swap-example">
+          <h3>What happens when pictures move:</h3>
+          <p>When pictures trade places, you need to click on all the pictures that moved.</p>
+          
+          <div className="swap-example-visual">
+            <div className="before-swap">
+              <h4>Before:</h4>
+              <div className="example-grid small">
+                <div className="example-cell">
+                  <div className="eco-image-container small">
+                    <img src={`${IMAGE_PATH}dog.jpg`} alt="Dog" className="eco-image" />
+                  </div>
+                </div>
+                <div className="example-cell">
+                  <div className="eco-image-container small">
+                    <img src={`${IMAGE_PATH}car.jpg`} alt="Car" className="eco-image" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="swap-arrow">⟷</div>
+            
+            <div className="after-swap">
+              <h4>After:</h4>
+              <div className="example-grid small">
+                <div className="example-cell">
+                  <div className="eco-image-container small">
+                    <img src={`${IMAGE_PATH}car.jpg`} alt="Car" className="eco-image" />
+                  </div>
+                </div>
+                <div className="example-cell">
+                  <div className="eco-image-container small">
+                    <img src={`${IMAGE_PATH}dog.jpg`} alt="Dog" className="eco-image" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <p className="swap-caption">
+            The dog and car switched places. You would need to click on both pictures.
+          </p>
+        </div>
+        
         <div className="task-note">
-          <p><strong>Important:</strong></p>
+          <p><strong>Important things to remember:</strong></p>
           <ul className="instruction-list">
-            <li>The same objects appear in both grids - only their positions change</li>
-            <li>When objects swap positions, you need to identify BOTH objects involved</li>
-            <li>You gain one point for each correctly identified moved object</li>
-            <li>You lose one point for each incorrectly identified object</li>
-            <li>Your score can be negative if you make more incorrect than correct selections</li>
-            <li>Example: If 4 objects moved and you identify all 4 correctly with no errors: score = 4</li>
-            <li>Example: If 4 objects moved and you identify 3 correctly but also 2 incorrect ones: score = 3 - 2 = 1</li>
-            <li>Example: If 4 objects moved and you identify 2 correctly but also 3 incorrect ones: score = 2 - 3 = -1</li>
+            <li>The same pictures appear in both boards - only their positions change</li>
+            <li>When pictures trade places, you need to find ALL pictures that moved</li>
+            <li>You get one point for each picture you correctly identify as having moved</li>
+            <li>You lose one point if you click on a picture that didn't move</li>
+            <li>Your score can go below zero if you make too many mistakes</li>
+            <li>Example: If 4 pictures moved and you find all 4 correctly with no mistakes: score = 4</li>
+            <li>Example: If 4 pictures moved and you find 3 correctly but also 2 that didn't move: score = 3 - 2 = 1</li>
+            <li>Example: If 4 pictures moved and you find 2 correctly but also 3 that didn't move: score = 2 - 3 = -1</li>
           </ul>
         </div>
         
-        <p>We'll start with a practice session using a small grid before moving to the main task.</p>
+        <p>We'll start with a practice round using just a few pictures before moving to the main game.</p>
       </div>
       
       <div className="navigation-buttons">

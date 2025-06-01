@@ -110,27 +110,27 @@ const SpatialMemoryTask = () => {
 
   return (
     <div className="spatial-screen">
-      <h1>Spatial Working Memory Task</h1>
+      <h1>Spatial Working Memory Game</h1>
       
       <div className="task-description">
-        <p>This task measures your ability to remember the positions of objects in space.</p>
+        <p>This game tests how well you can remember where shapes are placed.</p>
         
-        <h2>How it works:</h2>
+        <h2>How to play:</h2>
         <ol className="instruction-list">
-          <li>You will be shown a grid containing various colored shapes</li>
-          <li>Study the positions of these shapes carefully</li>
-          <li>After some time, a second grid will appear where some shapes have moved positions</li>
-          <li>Your task is to identify which shapes have changed position by clicking on them</li>
+          <li>You will see a picture with different colored shapes</li>
+          <li>Look carefully at where each shape is placed</li>
+          <li>After a moment, a second picture will appear where some shapes have moved to new spots</li>
+          <li>Your job is to find which shapes changed places by clicking on them</li>
         </ol>
         
         <div className="animated-example">
           <h3>Example:</h3>
           <p className="example-label">
             {showOriginal ? 
-              "Study the original positions:" : 
+              "Look at where the shapes are:" : 
               animationStep === 3 ? 
-                "Identify the shapes that moved (highlighted):" : 
-                "Notice the new positions:"}
+                "The shapes that moved are highlighted:" : 
+                "Now some shapes have moved:"}
           </p>
           
           <div className="example-grid-container">
@@ -154,21 +154,58 @@ const SpatialMemoryTask = () => {
           </p>
         </div>
         
+        <div className="swap-example">
+          <h3>What Happens When Shapes Move:</h3>
+          <p>When shapes trade places with each other, you need to click on all the shapes that moved.</p>
+          
+          <div className="swap-example-visual">
+            <div className="before-swap">
+              <h4>Before:</h4>
+              <div className="example-grid small">
+                <div className="example-cell">
+                  <div className="grid-shape shape-circle shape-blue"></div>
+                </div>
+                <div className="example-cell">
+                  <div className="grid-shape shape-square shape-red"></div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="swap-arrow">⟷</div>
+            
+            <div className="after-swap">
+              <h4>After:</h4>
+              <div className="example-grid small">
+                <div className="example-cell">
+                  <div className="grid-shape shape-square shape-red"></div>
+                </div>
+                <div className="example-cell">
+                  <div className="grid-shape shape-circle shape-blue"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <p className="swap-caption">
+            The blue circle and red square switched places. You would need to click on both shapes.
+          </p>
+        </div>
+        
         <div className="task-note">
           <p><strong>Important:</strong></p>
           <ul className="instruction-list">
-            <li>The same shapes appear in both grids - only their positions change</li>
-            <li>When shapes swap positions, you need to identify BOTH shapes involved</li>
-            <li>You gain one point for each correctly identified moved shape</li>
-            <li>You lose one point for each incorrectly identified shape</li>
-            <li>Your score can be negative if you make more incorrect than correct selections</li>
-            <li>Example: If 4 shapes moved and you identify all 4 correctly with no errors: score = 4</li>
-            <li>Example: If 4 shapes moved and you identify 3 correctly but also 2 incorrect ones: score = 3 - 2 = 1</li>
-            <li>Example: If 4 shapes moved and you identify 2 correctly but also 3 incorrect ones: score = 2 - 3 = -1</li>
+            <li>The same shapes appear in both pictures - only their positions change</li>
+            <li>When shapes trade places, you need to find BOTH shapes that moved</li>
+            <li>You get one point for each shape you correctly identify as having moved</li>
+            <li>You lose one point if you click on a shape that didn't move</li>
+            <li>Your score can go below zero if you make too many mistakes</li>
+            <li>Example: If 4 shapes moved and you find all 4 correctly with no mistakes: score = 4</li>
+            <li>Example: If 4 shapes moved and you find 3 correctly but also 2 that didn't move: score = 3 - 2 = 1</li>
+            <li>Example: If 4 shapes moved and you find 2 correctly but also 3 that didn't move: score = 2 - 3 = -1</li>
           </ul>
         </div>
         
-        <p>We'll start with a practice session using a small grid before moving to the main task.</p>
+        <p>We'll start with a practice round using a small board before moving to the main game.</p>
       </div>
       
       <div className="navigation-buttons">
