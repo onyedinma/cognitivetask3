@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { TASK_CONFIG, UTILS, EXPORT_FORMATS } from '../../config';
 import { getNextTask } from '../../utils/taskSequence';
@@ -44,10 +44,10 @@ const ObjectSpanMainTask = () => {
     
     // Generate initial sequence for round 1
     prepareRound(1, 1);
-  }, []);
+  }, [prepareRound]);
 
   // Generate a new sequence for the specified round
-  const generateSequenceForRound = (round) => {
+  const generateSequenceForRound = useCallback((round) => {
     const spanLength = getSpanForRound(round);
     console.log(`Generating sequence for Round ${round} with span ${spanLength}`);
     
@@ -58,28 +58,10 @@ const ObjectSpanMainTask = () => {
       newSequence.push(randomObjectId);
     }
     return newSequence;
-  };
-  
-  // Prepare for a new round/attempt
-  const prepareRound = (round, attempt) => {
-    console.log(`Preparing Round ${round}, Attempt ${attempt}`);
-    
-    // Generate the sequence for this round
-    const sequence = generateSequenceForRound(round);
-    
-    // Update state with the new sequence
-    setCurrentSequence(sequence);
-    setCurrentRound(round);
-    setCurrentAttempt(attempt);
-    
-    // Schedule starting the sequence
-    setTimeout(() => {
-      startDisplayingSequence(sequence);
-    }, 50);
-  };
+  }, [getSpanForRound]);
   
   // Start displaying a given sequence
-  const startDisplayingSequence = (sequence) => {
+  const startDisplayingSequence = useCallback((sequence) => {
     console.log(`Starting to display sequence with ${sequence.length} objects`);
     
     setCurrentState('displaying');
@@ -92,10 +74,10 @@ const ObjectSpanMainTask = () => {
     
     // Display the objects one by one
     displayObjects(sequence);
-  };
+  }, []);
   
   // Display objects one by one
-  const displayObjects = (objectSequence) => {
+  const displayObjects = useCallback((objectSequence) => {
     let index = 0;
     
     const displayNext = () => {
@@ -129,7 +111,25 @@ const ObjectSpanMainTask = () => {
     };
     
     displayNext();
-  };
+  }, []);
+  
+  // Prepare for a new round/attempt
+  const prepareRound = useCallback((round, attempt) => {
+    console.log(`Preparing Round ${round}, Attempt ${attempt}`);
+    
+    // Generate the sequence for this round
+    const sequence = generateSequenceForRound(round);
+    
+    // Update state with the new sequence
+    setCurrentSequence(sequence);
+    setCurrentRound(round);
+    setCurrentAttempt(attempt);
+    
+    // Schedule starting the sequence
+    setTimeout(() => {
+      startDisplayingSequence(sequence);
+    }, 50);
+  }, [generateSequenceForRound, startDisplayingSequence]);
   
   // Handle response submission
   const handleSubmit = (e) => {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './ShapeCounting.css';
 
@@ -15,14 +15,14 @@ const ShapeCountingInstructions = () => {
   const [circleCount, setCircleCount] = useState(0);
 
   // Example sequence of shapes to show
-  const exampleSequence = [
+  const exampleSequence = useMemo(() => [
     'circle',
     'square',
     'triangle',
     'triangle',
     'square',
     'triangle'
-  ];
+  ], []);
 
   // Animate through the example sequence
   useEffect(() => {
@@ -43,7 +43,7 @@ const ShapeCountingInstructions = () => {
       // Animation complete
       setAnimationComplete(true);
     }
-  }, [currentShapeIndex]);
+  }, [currentShapeIndex, exampleSequence]);
 
   const startPractice = () => {
     navigate('/shape-counting/practice');

@@ -2,9 +2,9 @@
 
 /* Task Screen */
 .task-screen {
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 10px;
+  padding: 15px;
   display: flex;
   flex-direction: column;
   min-height: 80vh;
@@ -13,27 +13,28 @@
 }
 
 .task-screen h1 {
-  font-size: 1.6rem;
-  margin-bottom: 5px;
+  font-size: 2rem;
+  margin-bottom: 10px;
   text-align: center;
 }
 
 .task-instructions {
   text-align: center;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
   max-width: 90%;
 }
 
 .task-instructions p {
-  margin: 3px 0;
-  font-size: 0.9rem;
+  margin: 6px 0;
+  font-size: 1.1rem;
+  line-height: 1.5;
 }
 
 .task-options {
   display: flex;
   justify-content: center;
-  gap: 15px;
-  margin: 1rem 0;
+  gap: 20px;
+  margin: 1.5rem 0;
 }
 
 .task-option-button, 
@@ -42,42 +43,42 @@
 .submit-button,
 .practice-button,
 .main-task-button {
-  padding: 10px 20px;
+  padding: 12px 24px;
   border: none;
-  border-radius: 5px;
-  font-size: 1rem;
+  border-radius: 6px;
+  font-size: 1.2rem;
   cursor: pointer;
   text-decoration: none;
   display: inline-block;
   text-align: center;
-  margin: 0.5rem;
+  margin: 0.7rem;
   transition: background-color 0.2s, transform 0.1s;
 }
 
 .task-option-button, .start-button {
   background-color: #3498db;
   color: white;
-  padding: 12px 24px;
+  padding: 14px 28px;
   font-weight: bold;
 }
 
 .task-option-button:hover, .start-button:hover {
   background-color: #2980b9;
-  transform: translateY(-2px);
+  transform: translateY(-3px);
 }
 
 .back-button,
 .home-button,
 .task-option-button {
   display: inline-block;
-  margin: 10px 5px;
-  padding: 8px 12px;
+  margin: 12px 6px;
+  padding: 10px 16px;
   color: white;
   text-decoration: none;
   border-radius: 4px;
   cursor: pointer;
   border: none;
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   transition: background-color 0.2s;
 }
 
@@ -93,9 +94,9 @@
 
 .task-option-button {
   background-color: #4285f4;
-  font-size: 18px;
-  padding: 15px 25px;
-  margin: 15px;
+  font-size: 20px;
+  padding: 16px 28px;
+  margin: 18px;
 }
 
 .back-button:hover {
@@ -108,13 +109,13 @@
 }
 
 .submit-button {
-  padding: 8px 16px;
+  padding: 10px 20px;
   background-color: #4285f4;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 5px;
   cursor: pointer;
-  font-size: 0.9rem;
+  font-size: 1.1rem;
 }
 
 .practice-button {
@@ -139,16 +140,16 @@
 /* Example Container */
 .example-container {
   background-color: #f9f9f9;
-  border-radius: 8px;
-  padding: 15px;
-  margin: 1rem 0 2rem;
-  border-left: 4px solid #3498db;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 1.5rem 0 2.5rem;
+  border-left: 5px solid #3498db;
 }
 
 .example-container h2 {
   color: #2c3e50;
   margin-top: 0;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
 }
 
 /* Object Display */
@@ -157,35 +158,41 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 5px 0;
+  margin: 10px 0;
   width: 100%;
 }
 
 .object-display {
-  width: 300px;
-  height: 300px;
+  width: 400px;
+  height: 400px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 5px auto;
+  margin: 10px auto;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .object-image {
-  max-width: 280px;
-  max-height: 280px;
+  max-width: 350px;
+  max-height: 350px;
   object-fit: contain;
 }
 
 .sequence-instruction {
-  font-size: 1rem;
-  margin-bottom: 5px;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
   text-align: center;
+  font-weight: bold;
+  color: #333;
 }
 
 .sequence-progress {
-  font-size: 0.9rem;
-  margin-top: 5px;
-  color: #666;
+  font-size: 1.1rem;
+  margin-top: 10px;
+  color: #444;
+  font-weight: 500;
 }
 
 /* Response Area */
@@ -195,26 +202,25 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  max-width: 600px;
-  margin: 10px auto;
-  padding: 15px;
+  max-width: 700px;
+  margin: 15px auto;
+  padding: 20px;
   background-color: #ffffff;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .response-instruction {
-  font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 10px;
+  font-size: 1.2rem;
   text-align: center;
-  color: #2c3e50;
-  padding: 0 10px;
+  margin-bottom: 15px;
+  color: #333;
+  font-weight: 500;
 }
 
 .response-instruction strong {
   color: #e74c3c;
-  font-weight: 700;
+  font-weight: bold;
 }
 
 .response-form {
@@ -227,27 +233,27 @@
 }
 
 .response-input {
-  font-size: 1.1rem;
-  padding: 12px;
+  font-size: 1.2rem;
+  padding: 15px;
   width: 100%;
   height: auto;
   min-height: 60px;
-  border: 2px solid #dfe6e9;
+  border: 2px solid #ddd;
   border-radius: 8px;
-  transition: all 0.3s ease;
-  margin-bottom: 10px;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: border-color 0.3s, box-shadow 0.3s;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
   font-family: inherit;
 }
 
 .response-input:focus {
   border-color: #3498db;
   outline: none;
-  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.25);
+  box-shadow: 0 2px 10px rgba(52, 152, 219, 0.2);
 }
 
 .response-input::placeholder {
-  color: #b2bec3;
+  color: #aaa;
 }
 
 .submit-button {
@@ -277,15 +283,11 @@
 }
 
 .hint {
-  font-size: 0.8rem;
-  color: #7f8c8d;
-  margin-top: 5px;
-  background-color: #f8f9fa;
-  padding: 6px 10px;
-  border-radius: 6px;
-  border-left: 3px solid #3498db;
-  width: 100%;
+  font-size: 1.1rem;
+  color: #666;
+  margin: 10px 0 20px;
   text-align: center;
+  font-style: italic;
 }
 
 /* Feedback */
@@ -506,21 +508,37 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 15px auto;
-  max-width: 90%;
+  margin: 20px 0;
+  gap: 20px;
+}
+
+.example-object-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .example-object {
-  width: 100px;
-  height: 100px;
+  width: 90px;
+  height: 90px;
   object-fit: contain;
-  margin: 0 5px;
+}
+
+.example-object-label {
+  margin-top: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+  text-align: center;
+  background-color: #e3f2fd;
+  padding: 4px 8px;
+  border-radius: 4px;
 }
 
 .arrow {
-  font-size: 18px;
-  color: #555;
-  margin: 0 3px;
+  font-size: 28px;
+  color: #3498db;
+  margin: 0 5px;
 }
 
 .example-response {
@@ -611,18 +629,18 @@
   }
   
   .object-display {
-    width: 250px;
-    height: 250px;
+    width: 320px;
+    height: 320px;
   }
   
   .object-image {
-    max-width: 230px;
-    max-height: 230px;
+    max-width: 280px;
+    max-height: 280px;
   }
   
   .example-object {
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
   }
 }
 
@@ -649,4 +667,23 @@
   color: #7f8c8d;
   margin-top: 10px;
   text-align: center;
+}
+
+.example-answer {
+  font-size: 1.2rem;
+  margin: 20px 0 10px;
+  text-align: center;
+  padding: 10px 15px;
+  background-color: #eaf7ff;
+  border-radius: 8px;
+  border-left: 4px solid #3498db;
+  color: #333;
+}
+
+.example-answer .important {
+  font-weight: bold;
+  color: #e74c3c;
+  padding: 2px 6px;
+  background-color: #ffeeee;
+  border-radius: 4px;
 } 

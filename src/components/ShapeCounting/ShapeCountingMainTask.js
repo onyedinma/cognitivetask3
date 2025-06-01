@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './ShapeCounting.css';
 import { saveTaskResults } from '../../utils/taskResults';
@@ -46,10 +46,10 @@ const ShapeCountingMainTask = () => {
   const shapes = ['square', 'triangle', 'circle'];
   
   // Clear all timers
-  const clearAllTimers = () => {
+  const clearAllTimers = useCallback(() => {
     timersRef.current.forEach(timer => clearTimeout(timer));
     timersRef.current = [];
-  };
+  }, []);
   
   // Generate a sequence of random shapes based on current level
   const generateSequence = () => {
@@ -83,7 +83,7 @@ const ShapeCountingMainTask = () => {
   };
   
   // Start showing the shapes
-  const startSequence = () => {
+  const startSequence = useCallback(() => {
     // Clear any existing timers
     clearAllTimers();
     
@@ -172,7 +172,7 @@ const ShapeCountingMainTask = () => {
     }, (sequence.length * 1500) + 500); // Add a small buffer after the last shape
     
     timersRef.current.push(responseTimer);
-  };
+  }, [clearAllTimers, currentLevel, currentAttempt, generateSequence, saveResultsToStorage]);
   
   // Check user's response and record result
   const checkResponse = () => {
@@ -269,7 +269,7 @@ const ShapeCountingMainTask = () => {
       timersRef.current.push(timer);
       return () => clearTimeout(timer);
     }
-  }, [currentLevel, taskComplete]);
+  }, [currentLevel, taskComplete, startSequence]);
   
   // Navigate back to tasks menu
   const returnToMenu = () => {
@@ -330,7 +330,7 @@ const ShapeCountingMainTask = () => {
     return () => {
       clearAllTimers();
     };
-  }, []);
+  }, [startSequence]);
   
   // Increment/decrement handlers for number inputs
   const handleIncrement = (setter) => {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { TASK_CONFIG } from '../../config';
 import './ObjectSpan.css';
@@ -24,7 +24,7 @@ const ObjectSpanPractice = () => {
   const isBackward = direction === 'backward';
 
   // Generate a sequence
-  const generateSequence = () => {
+  const generateSequence = useCallback(() => {
     const newSequence = [];
     for (let i = 0; i < currentSpan; i++) {
       // Random object from 1-9
@@ -32,22 +32,10 @@ const ObjectSpanPractice = () => {
       newSequence.push(randomObjectId);
     }
     return newSequence;
-  };
-
-  // Start displaying sequence
-  const startSequence = () => {
-    setCurrentState('displaying');
-    setCurrentIndex(0);
-    const newSequence = generateSequence();
-    setSequence(newSequence);
-    setCurrentObject(TASK_CONFIG.objectSpan.objectMapping[newSequence[0]]);
-    
-    // Schedule display of objects
-    displayObjects(newSequence);
-  };
+  }, [currentSpan]);
   
   // Display objects one by one
-  const displayObjects = (objectSequence) => {
+  const displayObjects = useCallback((objectSequence) => {
     let index = 0;
     
     const displayNext = () => {
@@ -81,7 +69,19 @@ const ObjectSpanPractice = () => {
     };
     
     displayNext();
-  };
+  }, []);
+
+  // Start displaying sequence
+  const startSequence = useCallback(() => {
+    setCurrentState('displaying');
+    setCurrentIndex(0);
+    const newSequence = generateSequence();
+    setSequence(newSequence);
+    setCurrentObject(TASK_CONFIG.objectSpan.objectMapping[newSequence[0]]);
+    
+    // Schedule display of objects
+    displayObjects(newSequence);
+  }, [generateSequence, displayObjects]);
   
   // Handle response submission
   const handleSubmit = (e) => {
@@ -162,7 +162,7 @@ const ObjectSpanPractice = () => {
   // Start sequence when component mounts
   useEffect(() => {
     startSequence();
-  }, []);
+  }, [startSequence]);
 
   // Handle back button click
   const handleBackClick = () => {

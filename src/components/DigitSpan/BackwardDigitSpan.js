@@ -24,7 +24,9 @@ const BackwardDigitSpan = () => {
         
         <div className="example-digits">
           <div className="example-digit">1</div>
+          <div className="arrow">→</div>
           <div className="example-digit">3</div>
+          <div className="arrow">→</div>
           <div className="example-digit">8</div>
         </div>
         

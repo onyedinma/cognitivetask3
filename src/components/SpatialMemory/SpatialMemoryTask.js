@@ -74,6 +74,17 @@ const SpatialMemoryTask = () => {
     return () => clearInterval(intervalId);
   }, [currentSwap]);
 
+  useEffect(() => {
+    // Automatically advance the animation after delay
+    if (animationStep < 3) {
+      const timer = setTimeout(() => {
+        setAnimationStep(animationStep + 1);
+      }, 2000);
+      
+      return () => clearTimeout(timer);
+    }
+  }, [animationStep, swaps.length]);
+
   const startPractice = () => {
     navigate('/spatial-memory/practice');
   };

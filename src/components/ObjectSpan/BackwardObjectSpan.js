@@ -85,22 +85,33 @@ const BackwardObjectSpan = () => {
       <div className="task-instructions">
         <p>In this task, you will be shown a series of objects one at a time.</p>
         <p>Your task is to remember and recall the objects in <strong>REVERSE ORDER</strong> from how they appeared.</p>
-        <p>For example, if you see: bread → car → books</p>
-        <p>You should click on the objects in reverse order: "books car bread"</p>
-        <p>You will start with practice trials to help you understand the task.</p>
-        <p>Click on the objects below to add them to your answer in reverse order.</p>
+        <p>For example, if you see these objects in order:</p>
       </div>
 
-      <div className="example-objects">
-        <img src="/images/Bread.png" alt="Bread" className="example-object" />
-        <div className="arrow">→</div>
-        <img src="/images/Car.png" alt="Car" className="example-object" />
-        <div className="arrow">→</div>
-        <img src="/images/Books.png" alt="Books" className="example-object" />
+      <div className="example-container">
+        <div className="example-objects">
+          <div className="example-object-wrapper">
+            <img src="/images/Bread.png" alt="Bread" className="example-object" />
+            <span className="example-object-label">bread</span>
+          </div>
+          <div className="arrow">→</div>
+          <div className="example-object-wrapper">
+            <img src="/images/Car.png" alt="Car" className="example-object" />
+            <span className="example-object-label">car</span>
+          </div>
+          <div className="arrow">→</div>
+          <div className="example-object-wrapper">
+            <img src="/images/Books.png" alt="Books" className="example-object" />
+            <span className="example-object-label">books</span>
+          </div>
+        </div>
+        
+        <p className="example-answer">You should type or click on the objects in <strong>REVERSE ORDER</strong>: <span className="important">"books car bread"</span></p>
       </div>
       
-      <div className="example-response">
-        <p>You should respond: "books car bread"</p>
+      <div className="task-instructions">
+        <p>You will start with practice trials to help you understand the task.</p>
+        <p>Click on the objects or type their names to give your answer.</p>
       </div>
 
       <button onClick={startPractice} className="start-button">

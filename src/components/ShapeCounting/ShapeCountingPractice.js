@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './ShapeCounting.css';
 
@@ -25,16 +25,16 @@ const ShapeCountingPractice = () => {
   const timersRef = useRef([]);
   
   // Clear all timers
-  const clearAllTimers = () => {
+  const clearAllTimers = useCallback(() => {
     timersRef.current.forEach(timer => clearTimeout(timer));
     timersRef.current = [];
-  };
+  }, []);
   
   // Shapes for the practice
   const shapes = ['square', 'triangle', 'circle'];
   
   // Generate a sequence of random shapes
-  const generateSequence = () => {
+  const generateSequence = useCallback(() => {
     const sequenceLength = 6; // Fixed at 6 shapes for practice
     const sequence = [];
     const counts = { squares: 0, triangles: 0, circles: 0 };
@@ -51,10 +51,10 @@ const ShapeCountingPractice = () => {
     }
     
     return { sequence, counts };
-  };
+  }, [shapes]);
   
   // Start showing the shapes
-  const startSequence = () => {
+  const startSequence = useCallback(() => {
     // Clear any existing timers
     clearAllTimers();
     
@@ -100,7 +100,7 @@ const ShapeCountingPractice = () => {
     }, sequence.length * 1500);
     
     timersRef.current.push(responseTimer);
-  };
+  }, [clearAllTimers, generateSequence]);
   
   // Check user's response
   const checkResponse = () => {
@@ -160,7 +160,7 @@ const ShapeCountingPractice = () => {
     return () => {
       clearAllTimers();
     };
-  }, []);
+  }, [startSequence]);
   
   // Increment/decrement handlers for number inputs
   const handleIncrement = (setter) => {
